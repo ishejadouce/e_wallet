@@ -18,3 +18,5 @@ Html, JS, and tailwind css
 Backend:
 python framork Django framework
 
+NB: superuser must accept users as active in order to login after register
+
