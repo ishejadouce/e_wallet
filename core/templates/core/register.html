@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Organization  Enfants -Mères{% endblock  %}
+{% block content %}
+    
+    
+    
+    
+    
+    <div class="container">
+
+        <div class="login--wrapper">
+
+            {% if page == 'login' %}
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+              <form method='post'>
+                {% csrf_token %}
+                <div class="form-group mb-6">
+                  <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Email address</label>
+                  <input type="email" class="form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" name="user_name" placeholder="Enter email">
+                  <small id="emailHelp" class="block mt-1 text-xs text-gray-600">We'll never share your email with anyone
+                    else.</small>
+                </div>
+                <div class="form-group mb-6">
+                  <label for="exampleInputPassword1"  class="form-label inline-block mb-2 text-gray-700">Password</label>
+                  <input type="password" class="form-control block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword1"
+                    placeholder="Password"  name="password">
+                </div>
+            
+                <button type="submit" class="
+                  px-6
+                  py-2.5
+                  bg-blue-600
+                  text-white
+                  font-medium
+                  text-xs
+                  leading-tight
+                  uppercase
+                  rounded
+                  shadow-md
+                  hover:bg-blue-700 hover:shadow-lg
+                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                  active:bg-blue-800 active:shadow-lg
+                  transition
+                  duration-150
+                  ease-in-out">Submit</button>
+
+                  <a href="{% url 'register' %}" class="
+                  px-6
+                  py-2.5
+                  bg-blue-600
+                  text-white
+                  font-medium
+                  text-xs
+                  leading-tight
+                  uppercase
+                  rounded
+                  shadow-md
+                  hover:bg-blue-700 hover:shadow-lg
+                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                  active:bg-blue-800 active:shadow-lg
+                  transition
+                  duration-150
+                  ease-in-out">Register</a>
+              </form>
+            </div>
+
+
+            {% else %}
+    
+
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+              <form action="" method='post'>
+                {% csrf_token %}
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="form-group mb-6">
+                    <input type="text" name="user_name" class="form-control
+                      block
+                      w-full
+                      px-3
+                      py-1.5
+                      text-base
+                      font-normal
+                      text-gray-700
+                      bg-white bg-clip-padding
+                      border border-solid border-gray-300
+                      rounded
+                      transition
+                      ease-in-out
+                      m-0
+                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput123"
+                      aria-describedby="emailHelp123" placeholder="username">
+                  </div>
+                  <div class="form-group mb-6">
+                    <input type="email" name="email" class="form-control
+                      block
+                      w-full
+                      px-3
+                      py-1.5
+                      text-base
+                      font-normal
+                      text-gray-700
+                      bg-white bg-clip-padding
+                      border border-solid border-gray-300
+                      rounded
+                      transition
+                      ease-in-out
+                      m-0
+                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput124"
+                      aria-describedby="emailHelp124" placeholder="email">
+                  </div>
+                </div>
+                <div class="form-group mb-6">
+                  <input type="password" name="password1" class="form-control block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125"
+                    placeholder="Enter Password">
+                </div>
+                <div class="form-group mb-6">
+                  <input type="password" name="password2" class="form-control block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput126"
+                    placeholder="Repreat Password">
+                </div>
+                <div class="form-group form-check text-center mb-6">
+  
+                  <label class="form-check-label inline-block text-gray-800" for="exampleCheck25">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <small style="color: red;">{{ message }}  </small>          
+                    {% endfor %}
+                    {% else %}
+                      {{ post.title }}
+                    {% endif %}
+                  </label>
+                </div>
+                <button type="submit" class="
+                  w-full
+                  px-6
+                  py-2.5
+                  bg-blue-600
+                  text-white
+                  font-medium
+                  text-xs
+                  leading-tight
+                  uppercase
+                  rounded
+                  shadow-md
+                  hover:bg-blue-700 hover:shadow-lg
+                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                  active:bg-blue-800 active:shadow-lg
+                  transition
+                  duration-150
+                  ease-in-out">Sign up</button>
+                  <p>Already have an account <a href="{% url 'login' %}">Login</a></p>
+              </form>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock  %}
